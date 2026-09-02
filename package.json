@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-auto-vision",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Auto-switch to a vision-capable model when a message contains images, and restore the previous model after the turn completes.",
   "license": "MIT",
   "type": "module",
