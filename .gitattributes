@@ -1,0 +1,2 @@
+# Normalize line endings; the package ships LF for js/ts/mjs
+* text=auto eol=lf

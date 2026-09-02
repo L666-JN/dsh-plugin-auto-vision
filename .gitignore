@@ -1,0 +1,13 @@
+# Dependencies (installed via pnpm link to the DSH runtime)
+node_modules/
+
+# npm/pnpm artifacts
+*.tgz
+npm-debug.log*
+pnpm-lock.yaml
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
