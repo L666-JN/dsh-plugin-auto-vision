@@ -67,7 +67,3 @@ dsh plugin --profile desktop add github:L666-JN/dsh-plugin-auto-vision#v0.1.0
 dsh plugin --profile desktop remove dsh-plugin-auto-vision
 ```
 并移除 `cordis.patch.yml` 中的 `auto-vision` 行，重启即可。
-
-## 后续路线（未实现）
-
-- **描述模式（方案 C）**：把图片交给独立视觉子代理转述、主对话保持原模型——在主会话历史极长且视觉模型明显更贵时节省输入 token，但会损失"模型直接看原图"的质量。计划形态：历史超过阈值时启用，失败自动回退当前方案。
