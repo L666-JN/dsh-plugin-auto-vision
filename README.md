@@ -24,20 +24,47 @@
 
 ## 安装
 
-1. 打包：`cd auto-vision && npm pack`（或直接使用目录）。
-2. 安装进桌面 profile（开发期可用 `link:`，改动即生效，重启桌面后加载）：
-   ```bash
-   dsh plugin --profile desktop add link:E:\DSH\Test1\auto-vision
-   # 或发布形态：
-   dsh plugin --profile desktop add E:\DSH\Test1\auto-vision\dsh-plugin-auto-vision-0.1.0.tgz
-   ```
-3. 在 `C:\Users\wps\.dsh\profiles\desktop\cordis.patch.yml` 加入 loader 行：
+以下任选一种方式安装到目标 profile（下面以默认的 `desktop` profile 为例；如使用其他 profile，把 `desktop` 换成对应名字）。
+
+### 方式一：从 GitHub 公共仓库安装（推荐）
+
+```bash
+dsh plugin --profile desktop add github:L666-JN/dsh-plugin-auto-vision
+```
+
+> 也可以显式指定版本分支/tag/commit：
+>
+> ```bash
+> dsh plugin --profile desktop add github:L666-JN/dsh-plugin-auto-vision#v0.1.0
+> ```
+
+### 方式二：本地打包安装
+
+```bash
+cd auto-vision
+npm pack                 # 生成 dsh-plugin-auto-vision-0.1.0.tgz
+dsh plugin --profile desktop add ./dsh-plugin-auto-vision-0.1.0.tgz
+```
+
+### 方式三：开发期本地链接（改动即生效，重启桌面后加载）
+
+```bash
+dsh plugin --profile desktop add link:E:\path\to\auto-vision
+```
+
+> 若 pnpm 提示需要 allowBuilds（git 托管插件含 prepare 脚本时才会出现），在
+> `<profile目录>\pnpm-workspace.yaml` 的 `allowBuilds` 中加入 pnpm 打印的
+> 包名后重新执行安装命令。本仓库未定义 prepare 脚本，通常无需此步骤。
+
+### 安装后的公共步骤
+
+1. 在 profile 的 `cordis.patch.yml`（默认 `C:\Users\wps\.dsh\profiles\desktop\cordis.patch.yml`）加入 loader 行：
    ```yaml
    - insert:
        - id: auto-vision
          name: dsh-plugin-auto-vision
    ```
-4. 重启 DSH Desktop。确认 设置 → 插件 出现本插件及配置卡片。
+2. 重启 DSH Desktop。确认 设置 → 插件 出现本插件及配置卡片。
 
 ## 配置（设置 → 插件 → dsh-plugin-auto-vision）
 
